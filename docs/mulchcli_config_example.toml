@@ -1,0 +1,11 @@
+
+[project]
+name = "example_project"
+description = "An example project initialized by mulchcli."
+created_at = "2025-04-21"
+
+[paths]
+imports = "projects/example_project/imports/"
+exports = "projects/example_project/exports/"
+configs = "projects/example_project/configs/"
+docs = "projects/example_project/docs/"
