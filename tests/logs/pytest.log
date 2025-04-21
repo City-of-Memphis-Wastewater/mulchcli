@@ -1,0 +1,4 @@
+2025-04-21 15:34:44,193 [INFO]: Running pytest. Logs will be saved to tests/logs/pytest_20250421_153444.md
+2025-04-21 15:34:44,545 [ERROR]: Some tests failed.
+2025-04-21 15:36:00,227 [INFO]: Running pytest. Logs will be saved to tests/logs/pytest_20250421_153600.md
+2025-04-21 15:36:00,581 [ERROR]: Some tests failed.

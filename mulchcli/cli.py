@@ -1,4 +1,4 @@
-# mulchcli/mulchcli/cli.py
+#mulchcli/mulchcli/cli.py
 
 import os
 import click

@@ -1,0 +1,1 @@
+#mulchcli/mulchcli/__main__.pyfrom .cli import main  # or wherever your actual @click.group livesif __name__ == "__main__":    main()

@@ -1,0 +1,115 @@
+{
+  "project_name": "mulchcli",
+  "goals": {
+    "1": "Testing and coverage with pytest and pytest-cov.",
+    "2": "Ensure correct generation of HTML coverage reports.",
+    "3": "Fix test failures in various modules and ensure proper handling of commands.",
+    "4": "Address compatibility with Python 3.10 (tomllib issue)."
+  },
+  "test_issues": [
+    {
+      "test_name": "test_version_command",
+      "error": "assert 2 == 0",
+      "reason": "SystemExit(2) indicates command issue.",
+      "fix": "Check version command setup for correct behavior with --version flag."
+    },
+    {
+      "test_name": "test_init_creates_project",
+      "error": "assert 'testproj' in <generator object Path.iterdir>",
+      "reason": "iterdir() returned generator, not a list.",
+      "fix": "Convert generator to list before checking presence of 'testproj'."
+    },
+    {
+      "test_name": "test_list_projects_empty",
+      "error": "assert 'No projects found' in 'No projects directory found.'",
+      "reason": "Output mismatch in error message.",
+      "fix": "Update assertion to check for 'No projects directory found.'"
+    },
+    {
+      "test_name": "test_list_projects",
+      "error": "assert 'demo' in 'No projects directory found.'",
+      "reason": "Output mismatch when checking for 'demo'.",
+      "fix": "Update assertion to check for 'No projects directory found.'"
+    },
+    {
+      "test_name": "test_set_and_get_config",
+      "error": "assert 2 == 0",
+      "reason": "SystemExit(2) suggests misconfiguration in config setting.",
+      "fix": "Investigate why config command returns non-zero exit code."
+    },
+    {
+      "test_name": "test_double_init_is_safe",
+      "error": "assert 'created' in '[?] Initialized project: proj1\n'",
+      "reason": "Output text mismatch with assertion.",
+      "fix": "Update assertion to check for 'initialized' instead of 'created'."
+    },
+    {
+      "test_name": "test_config_on_nonexistent_project",
+      "error": "Expected 'not exist' or 'config not found' but got usage message.",
+      "reason": "The --project flag was not recognized.",
+      "fix": "Ensure --project flag is implemented and recognized correctly."
+    },
+    {
+      "test_name": "test_nested_key_in_config",
+      "error": "ModuleNotFoundError: No module named 'tomllib'",
+      "reason": "tomllib is not available in Python 3.10.",
+      "fix": "Use tomli or add conditional import for tomllib based on Python version."
+    }
+  ],
+  "coverage": {
+    "overall": {
+      "statements": 54,
+      "missed": 17,
+      "branches": 14,
+      "partial": 3,
+      "coverage_percentage": 62
+    },
+    "files": {
+      "mulchcli/__main__.py": {
+        "statements": 3,
+        "missed": 3,
+        "branches": 2,
+        "partial": 0,
+        "coverage_percentage": 0
+      },
+      "mulchcli/cli.py": {
+        "statements": 12,
+        "missed": 1,
+        "branches": 2,
+        "partial": 1,
+        "coverage_percentage": 86
+      },
+      "mulchcli/commands/config.py": {
+        "statements": 12,
+        "missed": 5,
+        "branches": 0,
+        "partial": 0,
+        "coverage_percentage": 58
+      },
+      "mulchcli/commands/init.py": {
+        "statements": 13,
+        "missed": 2,
+        "branches": 4,
+        "partial": 1,
+        "coverage_percentage": 82
+      },
+      "mulchcli/commands/list_projects.py": {
+        "statements": 14,
+        "missed": 6,
+        "branches": 6,
+        "partial": 1,
+        "coverage_percentage": 45
+      }
+    },
+    "html_report_location": "C:/Users/george.bennett/OneDrive - City of Memphis/Documents/Dev/mulchcli/htmlcov/index.html"
+  },
+  "additional_notes": {
+    "htmlcov_location": "Root directory recommended for HTML coverage report (no issues with this approach).",
+    "logs_output": "Log saving to Markdown file was not successful but can be revisited later.",
+    "next_steps": [
+      "Address test failures by updating assertions and ensuring correct exit codes.",
+      "Ensure compatibility with Python 3.10 by switching to tomli or adding version checks for tomllib.",
+      "Revisit the logs saving issue later if necessary."
+    ]
+  }
+}
