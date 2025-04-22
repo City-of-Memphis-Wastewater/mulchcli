@@ -10,7 +10,7 @@ from pathlib import Path
 def runner():
     return CliRunner()
 
-def test_set_and_get_config(tmp_path, runner):
+def test_set_and_get_config(tmp_path, runner): 
     project = "demo"
     key = "db.port"
     value = "5432"
